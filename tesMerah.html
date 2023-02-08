@@ -6,25 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body .flex-container {
-  display: flex;
-  flex-wrap: nowrap;
-  background-color: #f1f1f1;
-  width: 100px;
-  margin: 10px;
-  text-align: center;
-  line-height: 75px;
-  font-size: 30px;
-}>
-  <div class="flex-container">
-    
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    
-  </div>
-  
-  <body>
+<body style="background-color: aqua;"
+>
+<div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div> 
 </body>
-
 </html>
+
+<link rel="stylesheet" media="(max-width: 640px)" href="max-640px.css">
+<link rel="stylesheet" media="(min-width: 640px)" href="min-640px.css">
+<link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
+<link rel="stylesheet" media="(orientation: landscape)" href="landscape.css">
+
+
+<style>.flex-container {
+  display: flex;
+}
+  
+</style>
