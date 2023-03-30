@@ -1,7 +1,7 @@
 .test{
-    background-color: red;
-  }
-  
-  a:hover{
-    transform: translateY(-15px);
-  }
+  background-color: red;
+}
+
+a:hover{
+  transform: translateY(-15px);
+}
