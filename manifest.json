@@ -1,0 +1,21 @@
+{
+    "name": "MDL Portofolio",
+    "short_name": "MDLPorto",
+    "icons": [
+      {
+        "src": "images/1024x1024.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/index.html",
+    "scope": ".",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#fff",
+    "theme_color": "#fff",
+    "description": "Material Design Lite lets you add a Material Design look and feel to your websites. It doesn’t rely on any JavaScript frameworks and aims to optimize for cross-device use, gracefully degrade in older browsers, and offer an experience that is immediately accessible. Get started now.",
+    "dir": "ltr",
+    "lang": "en-US"
+  }
+  
