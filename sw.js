@@ -10,6 +10,7 @@ var URLS = [                            // Add URL you want to cache in this lis
   "/styles.css",
   "/Tutorial/*.html",
   "/Tutorial/step05-individual-pages/*.html",
+  '/js/app.js',
 ]
 
 // Install the service worker and cache the files
