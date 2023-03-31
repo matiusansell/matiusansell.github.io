@@ -1,16 +1,13 @@
-
-var CACHE_NAME = "mdl-cache"
+var APP_PREFIX = 'CobaPWA'     // Identifier for this app (this needs to be consistent across every cache update)
+var VERSION = 'version_01'              // Version of the off-line cache (change this value everytime you want to update cache)
+var CACHE_NAME = APP_PREFIX + VERSION
 var URLS = [                            // Add URL you want to cache in this list.
-  "/",
-  "/index.html",
-  "/about.html",
-  "/contact.html",
-  "/js/app.js",
-  "/blog.html",
-  "/portfolio-example-01.html",
-  "/styles.css",
-  "/Tutorial/*.html",
-  "/Tutorial/step05-individual-pages/*.html",
+  '/',                     // If you have separate JS/CSS files,
+  '/index.html',            // add path to those files here
+  '/about.html',            // add path to those files here
+  '/css/about.css',            // add path to those files here
+  '/css/app.css',            // add path to those files here
+  '/js/app.js',            // add path to those files here
 ]
 
 // Respond with cached resources
@@ -56,7 +53,7 @@ self.addEventListener('activate', function (e) {
 
       return Promise.all(keyList.map(function (key, i) {
         if (cacheWhitelist.indexOf(key) === -1) {
-          console.log('deleting cache : ' + keyList[i])
+          console.log('deleting cache : ' + keyList[i] )
           return caches.delete(keyList[i])
         }
       }))
