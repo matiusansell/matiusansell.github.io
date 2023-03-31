@@ -5,66 +5,61 @@ var URLS = [                            // Add URL you want to cache in this lis
   "/index.html",
   "/about.html",
   "/contact.html",
+  "/js/app.js",
   "/blog.html",
   "/portfolio-example-01.html",
   "/styles.css",
   "/Tutorial/*.html",
   "/Tutorial/step05-individual-pages/*.html",
-  '/js/app.js',
 ]
 
-// Install the service worker and cache the files
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches
-      .open(CACHE_NAME)
-      .then((cache) => cache.addAll(URLS))
-      .then(() => self.skipWaiting())
-  );
-});
-
-// Activate the service worker and delete old caches
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches
-      .keys()
-      .then((cacheNames) => {
-        return Promise.all(
-          cacheNames
-            .filter((cacheName) => {
-              return cacheName !== CACHE_NAME;
-            })
-            .map((cacheName) => {
-              return caches.delete(cacheName);
-            })
-        );
-      })
-      .then(() => self.clients.claim())
-  );
-});
-
-// Fetch the files from the cache first, then the network
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      if (response) {
-        // If the file is found in the cache, return it
-        return response;
-      } else {
-        // If the file is not found in the cache, fetch it from the network
-        return fetch(event.request)
-          .then((response) => {
-            // Cache the fetched file
-            return caches.open(CACHE_NAME).then((cache) => {
-              cache.put(event.request, response.clone());
-              return response;
-            });
-          })
-          .catch((error) => {
-            console.error("Error fetching data:", error);
-            throw error;
-          });
+// Respond with cached resources
+self.addEventListener('fetch', function (e) {
+  console.log('fetch request : ' + e.request.url)
+  e.respondWith(
+    caches.match(e.request).then(function (request) {
+      if (request) { // if cache is available, respond with cache
+        console.log('responding with cache : ' + e.request.url)
+        return request
+      } else {       // if there are no cache, try fetching request
+        console.log('file is not cached, fetching : ' + e.request.url)
+        return fetch(e.request)
       }
+
+      // You can omit if/else for console.log & put one line below like this too.
+      // return request || fetch(e.request)
     })
-  );
-});
+  )
+})
+
+// Cache resources
+self.addEventListener('install', function (e) {
+  e.waitUntil(
+    caches.open(CACHE_NAME).then(function (cache) {
+      console.log('installing cache : ' + CACHE_NAME)
+      return cache.addAll(URLS)
+    })
+  )
+})
+
+// Delete outdated caches
+self.addEventListener('activate', function (e) {
+  e.waitUntil(
+    caches.keys().then(function (keyList) {
+      // `keyList` contains all cache names under your username.github.io
+      // filter out ones that has this app prefix to create white list
+      var cacheWhitelist = keyList.filter(function (key) {
+        return key.indexOf(APP_PREFIX)
+      })
+      // add current cache name to white list
+      cacheWhitelist.push(CACHE_NAME)
+
+      return Promise.all(keyList.map(function (key, i) {
+        if (cacheWhitelist.indexOf(key) === -1) {
+          console.log('deleting cache : ' + keyList[i])
+          return caches.delete(keyList[i])
+        }
+      }))
+    })
+  )
+})
