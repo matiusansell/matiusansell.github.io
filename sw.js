@@ -12,7 +12,7 @@ self.addEventListener("install", function (event) {
         "/about.html",
         "/contact.html",
         "/blog.html",
-        "/portfolio-example-01.html",
+        "/portfolio-example01.html",
         "/styles.css",
         "/Tutorial/*.html",
         "/Tutorial/step05-individual-pages/*.html",
