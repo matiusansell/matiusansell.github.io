@@ -3,7 +3,7 @@
     "short_name": "MDLPorto",
     "icons": [
       {
-        "src": "images/logoambw.jpg",
+        "src": "img/logoambw.jpg",
         "type": "image/jpg",
         "sizes": "512x512"
       }
