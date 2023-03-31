@@ -9,7 +9,7 @@ var URLS = [                            // Add URL you want to cache in this lis
   '/contact.html',
   '/portfolio-example01.html',            // add path to those files here
   '/style.css',            // add path to those files here
-  '/style.css',            // add path to those files here
+  //'/css/app.css',            // add path to those files here
   //'/js/app.js',            // add path to those files here
 ]
 
