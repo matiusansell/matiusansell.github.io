@@ -1,8 +1,6 @@
-// Define the cache name
-const CACHE_NAME = "mdl-cache";
 
-// Define the files to be cached
-const urlsToCache = [
+var CACHE_NAME = "mdl-cache"
+var URLS = [                            // Add URL you want to cache in this list.
   "/",
   "/index.html",
   "/about.html",
@@ -12,7 +10,7 @@ const urlsToCache = [
   "/styles.css",
   "/Tutorial/*.html",
   "/Tutorial/step05-individual-pages/*.html",
-];
+]
 
 // Install the service worker and cache the files
 self.addEventListener("install", (event) => {
