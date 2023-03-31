@@ -10,8 +10,6 @@ const urlsToCache = [
   "/blog.html",
   "/portfolio-example-01.html",
   "/styles.css",
-  "/Tutorial/*.html",
-  "/Tutorial/step05-individual-pages/*.html",
 ];
 
 // Install the service worker and cache the files
