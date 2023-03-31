@@ -1,14 +1,14 @@
 {
-  "name": "Coba PWA",
+  "name": "PWA UTS AMBW",
   "short_name": "Coba",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#2A3443",
-  "description": "Aplikasi mencoba",
+  "description": "UTS AMBW",
   "theme_color": "#2A3443",
   "icons": [
     {
-      "src": "./img/icon.png",
+      "src": "./img/logoambw.png",
       "sizes": "512x512",
       "type": "image/png"
     }
