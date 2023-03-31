@@ -4,13 +4,16 @@ var CACHE_NAME = APP_PREFIX + VERSION
 var URLS = [                            // Add URL you want to cache in this list.
   '/',                     // If you have separate JS/CSS files,
   '/index.html',            // add path to those files here
-  '/about.html',            // add path to those files here
-  '/css/about.css',            // add path to those files here
-  '/css/app.css',            // add path to those files here
-  '/js/app.js',            // add path to those files here
+  '/about.html',
+  '/blog.html',
+  '/contact.html',
+  '/portfolio-example01.html',            // add path to those files here
+  '/style.css',            // add path to those files here
+  //'/css/app.css',            // add path to those files here
+  //'/js/app.js',            // add path to those files here
 ]
 
-// Respond with cached resources
+// Respond with cached resources  
 self.addEventListener('fetch', function (e) {
   console.log('fetch request : ' + e.request.url)
   e.respondWith(
